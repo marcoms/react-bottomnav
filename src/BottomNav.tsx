@@ -34,7 +34,7 @@ export default class BottomNav extends React.Component<BottomNavProps> {
 			};
 
 			if (child.props.label === this.props.selectedLabel) {
-				itemProps.color = activeColor;
+				itemProps.fgColor = activeColor;
 			}
 
 			return React.cloneElement(child, itemProps);

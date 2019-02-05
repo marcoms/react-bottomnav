@@ -4,11 +4,11 @@ import styled from 'styled-components';
 export interface BottomNavItemProps {
 	label: string;
 	onClick?: (label: string) => void;
-	color?: string;
+	fgColor?: string;
 }
 
 interface ContainerProps {
-	color: string;
+	fgColor: string;
 }
 
 const Container = styled.div`
@@ -16,7 +16,7 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 80px;
-	color: ${(props: ContainerProps) => props.color};
+	color: ${(props: ContainerProps) => props.fgColor};
 	justify-content: center;
 
 	svg {
@@ -37,10 +37,10 @@ export default class BottomNavItem extends React.Component<BottomNavItemProps> {
 	}
 
 	render() {
-		const color = this.props.color || '#0008';
+		const color = this.props.fgColor || '#0008';
 
 		return (
-			<Container onClick={this.onClick} color={color}>
+			<Container onClick={this.onClick} fgColor={color}>
 				{this.props.children}
 
 				<Label>{this.props.label}</Label>
