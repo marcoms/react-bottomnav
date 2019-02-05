@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import BottomNavItem, { BottomNavItemProps } from './BottomNavItem';
 
+const defaultSelectedColor = '#1976d2';
+
 export interface BottomNavProps {
 	selectedColor?: string;
 	selectedLabel: string;
@@ -25,7 +27,7 @@ export default class BottomNav extends React.Component<BottomNavProps> {
 	}
 
 	render() {
-		const activeColor = this.props.selectedColor || 'blue';
+		const activeColor = this.props.selectedColor || defaultSelectedColor;
 
 		const items = React.Children.map(this.props.children, (child: React.ReactElement<BottomNavItemProps>) => {
 			const itemProps: BottomNavItemProps = {
