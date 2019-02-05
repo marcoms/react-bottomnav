@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const defaultColor = '#0008';
+
 export interface BottomNavItemProps {
 	label: string;
 	onClick?: (label: string) => void;
@@ -40,7 +42,7 @@ export default class BottomNavItem extends React.Component<BottomNavItemProps> {
 	}
 
 	render() {
-		const color = this.props.fgColor || '#0008';
+		const color = this.props.fgColor || defaultColor;
 
 		return (
 			<Container onClick={this.onClick} fgColor={color}>
