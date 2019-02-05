@@ -22,6 +22,8 @@ const Container = styled.div`
 
 	svg {
 		fill: currentColor;
+		width: 24px;
+		height: 24px;
 	}
 `;
 
