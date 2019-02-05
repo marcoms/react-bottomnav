@@ -19,7 +19,6 @@ const Bar = styled.div`
 
 export default class BottomNav extends React.Component<BottomNavProps> {
 	onItemClick = (label: string) => {
-		console.log('onItemClick', label);
 		if (label !== this.props.selectedLabel) {
 			this.props.onSelect(label);
 		}
@@ -29,9 +28,16 @@ export default class BottomNav extends React.Component<BottomNavProps> {
 		const activeColor = this.props.selectedColor || 'blue';
 
 		const items = React.Children.map(this.props.children, (child: React.ReactElement<BottomNavItemProps>) => {
-			return React.cloneElement(child, {
+			const itemProps: BottomNavItemProps = {
 				onClick: this.onItemClick,
-			} as BottomNavItemProps);
+				label: child.props.label,
+			};
+
+			if (child.props.label === this.props.selectedLabel) {
+				itemProps.color = activeColor;
+			}
+
+			return React.cloneElement(child, itemProps);
 		});
 
 		return (
