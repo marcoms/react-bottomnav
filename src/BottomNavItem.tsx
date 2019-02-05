@@ -15,6 +15,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	cursor: pointer;
 	width: 80px;
 	color: ${(props: ContainerProps) => props.fgColor};
 	justify-content: center;
